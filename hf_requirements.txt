@@ -1,0 +1,5 @@
+scikit-learn==1.4.2
+pandas==2.2.2
+joblib==1.4.2
+gradio==4.31.5
+# Ensure all packages needed by app.py are here
