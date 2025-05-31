@@ -32,9 +32,9 @@ hf-login:
 
 push-hub: 
 	. venv/bin/activate
-	huggingface-cli upload kingabzpro/Drug-Classification ./App --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload kingabzpro/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload kingabzpro/Drug-Classification ./Results /Metrics --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./App --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./Model /Model --repo-type=space --commit-message="Sync Model"
+	huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./Results /Metrics --repo-type=space --commit-message="Sync Model"
 
 deploy: hf-login push-hub
 
