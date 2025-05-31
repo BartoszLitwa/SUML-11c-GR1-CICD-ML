@@ -1,12 +1,12 @@
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	python3 -m venv venv
+	. venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
 
-format:	
-	black *.py 
+format:
+	. venv/bin/activate && black *.py
 
 train:
-	python train.py
+	. venv/bin/activate && python train.py
 
 eval:
 	echo "## Model Metrics" > report.md
@@ -15,7 +15,7 @@ eval:
 	echo '\n## Confusion Matrix Plot' >> report.md
 	echo '![Confusion Matrix](./Results/model_results.png)' >> report.md
 	
-	cml comment create report.md
+	. venv/bin/activate && cml comment create report.md
 		
 update-branch:
 	git config --global user.name $(USER_NAME)
