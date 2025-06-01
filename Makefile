@@ -28,13 +28,12 @@ hf-login:
 	. venv/bin/activate && pip install -U "huggingface_hub[cli]"
 	git pull origin update
 	git switch update
-	huggingface-cli login --token $(HF) --add-to-git-credential
+	. venv/bin/activate && huggingface-cli login --token $(HF) --add-to-git-credential
 
 push-hub: 
-	. venv/bin/activate
-	huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./App --repo-type=space --commit-message="Sync App files"
-	huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./Model /Model --repo-type=space --commit-message="Sync Model"
-	huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./Results /Metrics --repo-type=space --commit-message="Sync Model"
+	. venv/bin/activate && huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./App --repo-type=space --commit-message="Sync App files"
+	. venv/bin/activate && huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./Model /Model --repo-type=space --commit-message="Sync Model"
+	. venv/bin/activate && huggingface-cli upload s24784/SUML-11c-GR1-CICD-ML ./Results /Metrics --repo-type=space --commit-message="Sync Model"
 
 deploy: hf-login push-hub
 
